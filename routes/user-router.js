@@ -7,6 +7,11 @@ const {
   getUserFriends,
   removeAddFriend,
 } = require("../controller/user.controller");
+const {
+  getFeedPosts,
+  getUserPosts,
+  likePost,
+} = require("../controller/post.controller");
 const router = express.Router();
 
 router.get("/hello", (req, res) => {
@@ -18,8 +23,8 @@ router.post("/auth/login", login);
 router.get("/:id", verifyToken, getUser);
 router.get("/:id/friends", verifyToken, getUserFriends);
 router.patch("/:id/:friendId", verifyToken, removeAddFriend);
-router.get("/posts", verifyToken);
-router.get("/:userId/posts", verifyToken);
-router.patch("/:id/like", verifyToken);
+router.get("/posts", verifyToken, getFeedPosts);
+router.get("/:userId/posts", verifyToken, getUserPosts);
+router.patch("/:id/like", verifyToken, likePost);
 
 module.exports = router;
