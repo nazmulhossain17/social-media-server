@@ -1,6 +1,6 @@
 const User = require("../model/User");
 
-async function getUser(req, res) {
+const getUser = async function (req, res) {
   try {
     const { id } = req.params;
     const user = await User.findById(id);
@@ -8,7 +8,7 @@ async function getUser(req, res) {
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
-}
+};
 
 async function getUserFriends(req, res) {
   try {
