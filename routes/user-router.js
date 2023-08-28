@@ -18,5 +18,8 @@ router.post("/auth/login", login);
 router.get("/:id", verifyToken, getUser);
 router.get("/:id/friends", verifyToken, getUserFriends);
 router.patch("/:id/:friendId", verifyToken, removeAddFriend);
+router.get("/posts", verifyToken);
+router.get("/:userId/posts", verifyToken);
+router.patch("/:id/like", verifyToken);
 
 module.exports = router;
