@@ -11,6 +11,7 @@ const connectDB = async () => {
     //   User.insertMany(users);
     //   Post.insertMany(posts);
     // });
+    // 
     await mongoose.connect(dbURL);
     console.log("Database Connected!");
     app.listen(port, () => {
